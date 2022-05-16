@@ -7,6 +7,13 @@ const os = require("os")
 
 const smp = new SpeedMeasurePlugin()
 
+/**
+ * 开发环境和生产环境的共同配置
+  1、同样的入口
+  2、同样的代码处理(loader处理)
+  3、同样的解析配置
+ */
+
 module.exports = {
   entry: "./src/index",
   output: {
@@ -46,7 +53,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "a test program",
       template: "./src/index.html",
-      favicon: "./src/assets/favicon.ico"
+      favicon: "./src/assets/favicon.ico",
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: "server", // 可以是 server、static、json、disabled。在server模式下，分析器将启动HTTP服务器来显示软件包报告。在“静态”模式下，会生成带有报告的单个HTML文件。在disabled模式下，你可以使用这个插件来将generateStatsFile设置为true来生成Webpack Stats JSON文件。
