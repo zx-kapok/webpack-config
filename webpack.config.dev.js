@@ -13,5 +13,9 @@ module.exports = {
     ip: "10.1.141.87",
     port: "9527",
     hot: true,
+    open: true,
+    proxy: {
+      "/api": "http://localhost:3000",
+    },
   },
 }

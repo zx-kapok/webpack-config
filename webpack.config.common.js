@@ -46,7 +46,25 @@ module.exports = {
         use: ["less-loader", "style-loader"],
         exclude: /node_modules/,
       },
+      {
+        test: /\.(png|jpg|jpeg|gif)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 20000,
+              name: "[name].[ext]",
+            },
+          },
+        ],
+        exclude: /node_modules/,
+      },
     ],
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src/"),
+    },
   },
   plugins: [
     new CleanWebpackPlugin(),
