@@ -10,4 +10,7 @@ const path = require("path")
 
 module.exports = {
   entry: [path.join(__dirname, "src/index.js")],
+  optimization: {
+    usedExports: true, // 是否启用 tree shaking
+  },
 }

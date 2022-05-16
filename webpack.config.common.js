@@ -69,7 +69,4 @@ module.exports = {
       excludeAssets: null, // 用于排除分析一些文件
     }),
   ],
-  optimization: {
-    usedExports: true, // 是否启用 tree shaking
-  },
 }
