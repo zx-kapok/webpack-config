@@ -87,4 +87,29 @@ module.exports = {
       excludeAssets: null, // 用于排除分析一些文件
     }),
   ],
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+      // name: true,
+      cacheGroups: {
+        commons: {
+          chunks: "initial",
+          minChunks: 2,
+          name: "common",
+          priority: 1,
+        },
+        antd: {
+          test: /antd/,
+          minChunks: 2,
+          chunks: "all",
+          priority: 2,
+        },
+        asyncs: {
+          test: /node_modules/,
+          chunks: "async",
+        },
+      },
+    },
+    runtimeChunk: "single",
+  },
 }
